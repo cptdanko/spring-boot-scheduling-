@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "a454008d-b9aa-40dd-af7e-ae98e1bd8505",
+		"name": "spring-boot-scheduling",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "595931"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/schedule/",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const moment = require('moment');",
+							"var date = new Date();",
+							"console.log(date);",
+							"pm.environment.set('current_date', moment().format(\"yyyy-MM-dd HH:mm:ss\"));",
+							"console.log(\"-------------\");",
+							"console.log(pm.environment.get('current_date'));",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message\": \"HI there\",\n    \"name\": \"Bhuman's schedule\",\n    \"scheduleDate\": \"08-12-2024 5:11 PM\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/schedule/"
+			},
+			"response": []
+		}
+	]
+}
